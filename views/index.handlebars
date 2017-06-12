@@ -3,7 +3,7 @@
 <h2>Burgers That I Ate:</h2>
 
 <ul>
-  {{#each burgers}}
+  {{#each burger_name}}
     {{#unless this.sleepy}}
       <li>
         {{this.name}}
@@ -13,7 +13,7 @@
           <button type="submit">SLEEP TIME!</button>
         </form>
 
-        {{> burgers/delete-burger}}
+        {{> burger_name/devoured}}
       </li>
     {{/unless}}
   {{/each}}
@@ -22,7 +22,7 @@
 <h2>Burgers I Threw Away</h2>
 
 <ul>
-  {{#each burgers}}
+  {{#each burger_name}}
     {{#if this.sleepy}}
       <li>
         {{this.name}}
@@ -32,7 +32,7 @@
           <button type="submit">WAKE UP!</button>
         </form>
 
-        {{> burgers/delete-burger}}
+        {{> burger_name/devoured}}
       </li>
     {{/if}}
   {{/each}}
