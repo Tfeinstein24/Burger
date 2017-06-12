@@ -16,11 +16,15 @@ router.get("/", function(req, res) {
   });
 });
 
+router.get("/example", function(req, res) {
+  res.render("example");
+})
+
 router.post("/", function(req, res) {
   burger.create([
-    "name", "sleepy"
+    "burger_name", "devoured"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.burger_name, req.body.devoured
   ], function() {
     res.redirect("/");
   });
@@ -32,7 +36,7 @@ router.put("/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.update({
-    sleepy: req.body.sleepy
+    devoured: req.body.devoured
   }, condition, function() {
     res.redirect("/");
   });

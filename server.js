@@ -6,17 +6,19 @@ var PORT = process.env.PORT || 8888;
 
 var app = express();
 
-// Serve static content for the app from the "public" directory in the application directory.
-//app.use(express.static(process.cwd() + "/public"));
+// Set Handlebars.
+var exphbs = require("express-handlebars");
 
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(__dirname + "/public"));
+
+// Body Parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
+// Handlebars Middleware
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
